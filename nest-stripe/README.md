@@ -1,73 +1,74 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# NestJS Backend Boilerplate
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This is a NestJS backend project boilerplate designed to accelerate the development of robust and scalable APIs. This project includes JWT authentication with refresh token, Stripe integration for payments, email sending with Nodemailer, real-time notifications with Socket.io, DTO validation with Class Validator, and environment variables management. Additionally, it has role-based route access control to protect your routes.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Features
 
-## Description
+- **JWT Authentication with Refresh Token**: Secure your routes and keep users authenticated.
+- **Stripe Payments**: Integrated payment platform.
+- **Email Sending with Nodemailer**: Easily send emails to your users.
+- **Real-time Notifications with Socket.io**: Implement real-time notifications easily.
+- **DTO Validation with Class Validator**: Ensure the integrity of data received in your APIs.
+- **Environment Variables Management**: Easily configure different environments (development, production, etc.).
+- **Role-Based Access Control**: Protect your routes based on user permissions.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Technologies Used
+
+- Authentication with JWT and Refresh Token
+- [`Stripe`](https://docs.stripe.com/api) Payment Gateway
+- Email Sending with [`Nodmeailer`](https://nodemailer.com/)
+- Real-time Notifications with [`Socket.io`](https://socket.io/)
+- DTO and Environment Variables Validation with [`class-validator`](https://github.com/typestack/class-validator) and [`class-transformer`](https://github.com/typestack/class-transformer)
+- Role-Based Access Control
+- Integrations Tests with [`Jest`](https://jestjs.io/)
 
 ## Installation
 
-```bash
-$ npm install
-```
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-username/your-repository.git
+   cd your-repository
+   ```
 
-## Running the app
+2. Install dependencies:
+    ```sh
+    npm install
+    ```
 
-```bash
-# development
-$ npm run start
+3. Configure environment variables:
+  
+    Create a .env file in the root of the project and add your environment variables. Example of .env:
+  
+    ```sh
+    # Database configuration
+    DATABASE_HOST=
+    DATABASE_PORT=
+    DATABASE_USERNAME=
+    DATABASE_PASSWORD=
+    DATABASE_NAME=
 
-# watch mode
-$ npm run start:dev
+    DATABASE_URL=
 
-# production mode
-$ npm run start:prod
-```
+    # Stripe configuration (payment gateway)
+    STRIPE_API_KEY=
 
-## Test
+    # JWT secret
+    JWT_SECRET=
 
-```bash
-# unit tests
-$ npm run test
+    # Email configuration
+    EMAIL_HOST=
+    EMAIL_PORT=
+    EMAIL_USERNAME=2
+    EMAIL_PASSWORD=
+    EMAIL_FROM=
+    ```
 
-# e2e tests
-$ npm run test:e2e
+4. Run database migrations (if necessary):
+    ```sh
+    npm run prisma:migrate:dev
+    ```
 
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+5. Start the server:
+      ```sh
+      npm run start:dev
+      ```
